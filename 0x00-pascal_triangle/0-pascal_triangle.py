@@ -6,10 +6,12 @@ def pascal_triangle(n):
     """Creating a function that returns
     list of integers."""
     ret = []
-    if (n <= 0):
-        return ret
-    new = ret.append([1])
-    for i in range(n - 1):
-        new + [ret[i][j] + ret[i][j + 1]
-               for j in range(len(ret[i] - 1)] + [1])
+    if (n > 0):
+        for i in range(1, n + 1):
+            new = []
+            x = i
+            for j in range(1, i + 1):
+                new.append(x)
+                x = x * (i - j) // j
+            ret.append(new)
     return ret
